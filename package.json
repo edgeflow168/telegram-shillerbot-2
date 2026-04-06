@@ -1,0 +1,13 @@
+{
+  "name": "telegram-soft-bot",
+  "version": "1.0.0",
+  "description": "Friendly Telegram community bot with random delays and soft shill",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "telegraf": "^4.16.3"
+  }
+}
