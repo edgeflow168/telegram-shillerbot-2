@@ -100,56 +100,57 @@ function updateUserState(userId, patch) {
 }
 
 const GREETINGS = [
-  "good morning fam",
-  "gm fam ☀️",
-  "gm gm",
-  "morning mate",
-  "good morning ser",
-  "gm legend"
+  "Good morning fam",
+  "Gm fam ☀️",
+  "Gm gm",
+  "Morning mate",
+  "Good morning ser",
+  "Gm legend"
 ];
 
 const HOW_ARE_YOU_REPLIES = [
-  "i am fine thank you, you?",
-  "im good hehe, u?",
-  "all good here, how bout u?",
-  "doing well fam, u?",
-  "pretty good today, you?"
+  "I am fine thank you, you?",
+  "Im good hehe, u?",
+  "All good here, how bout u?",
+  "Doing well fam, u?",
+  "Pretty good today, you?"
 ];
 
 const AWESOME_REPLIES = [
   "😎",
   "🔥",
   "🙌",
-  "niceee",
-  "love that",
-  "lets gooo"
+  "Niceee",
+  "Love that",
+  "LFG",
+  "Lets gooo"
 ];
 
 const THANKS_REPLIES = [
-  "always fam",
-  "no worries",
-  "anytime mate",
-  "gotchu",
-  "hehe anytime"
+  "Always fam",
+  "No worries",
+  "Anytime mate",
+  "Gotchu",
+  "Hehe anytime"
 ];
 
 const GENERAL_FRIENDLY = [
-  "haha fair enough",
-  "nice one",
-  "love the vibe here",
-  "real talk",
-  "that sounds good ngl",
-  "yea thats true",
-  "haha valid"
+  "Haha fair enough",
+  "Nice one",
+  "Love the vibe here",
+  "Real talk",
+  "That sounds good ngl",
+  "Yea thats true",
+  "Haha valid"
 ];
 
 const SOFT_SHILL_LINES = [
-  "btw if anyone still exploring, feel free to check the pinned message when free 👀",
-  "quiet reminder fam, some useful updates are in pinned if u missed them",
-  "for new peeps here, pinned has the basic stuff and links 🤝",
-  "not financial advice obviously but worth checking the latest update in pinned",
-  "if ur still reading things up, roadmap and key links are in pinned",
-  "small reminder, the main info is already in pinned so its easier for everyone"
+  "Btw if anyone still exploring, feel free to check the pinned message when free 👀",
+  "Quiet reminder fam, some useful updates are in pinned if u missed them",
+  "For new peeps here, pinned has the basic stuff and links 🤝",
+  "Not financial advice obviously but worth checking the latest update in pinned",
+  "If ur still reading things up, roadmap and key links are in pinned",
+  "Small reminder, the main info is already in pinned so its easier for everyone"
 ];
 
 function detectIntent(text) {
@@ -168,12 +169,12 @@ function shouldReply(ctx, intent) {
 
   if (isPrivate) return true;
 
-  if (intent === "gm") return chance(0.65);
-  if (intent === "how_are_you") return chance(0.75);
-  if (intent === "positive") return chance(0.55);
-  if (intent === "thanks") return chance(0.5);
+  if (intent === "gm") return chance(0.95);
+  if (intent === "how_are_you") return chance(0.85);
+  if (intent === "positive") return chance(0.65);
+  if (intent === "thanks") return chance(0.70);
 
-  return chance(0.18);
+  return chance(0.9);
 }
 
 bot.start(async (ctx) => {
