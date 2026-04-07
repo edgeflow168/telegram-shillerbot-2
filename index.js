@@ -64,12 +64,21 @@ function avoidSameReply(chatId, newReply) {
 }
 
 async function humanReply(ctx, text, extra = {}) {
-  const delayMs = randomInt(4000, 18000);
+  let delayMs;
+
+  if (chance(0.3)) {
+    delayMs = randomInt(5000, 12000);
+  } else if (chance(0.5)) {
+    delayMs = randomInt(15000, 40000);
+  } else {
+    delayMs = randomInt(60000, 120000);
+  }
+
   await sleep(delayMs);
 
   if (chance(0.12)) {
     await ctx.sendChatAction("typing");
-    await sleep(randomInt(1500, 5000));
+    await sleep(randomInt(3000, 9000));
   }
 
   let finalText = addHumanTypos(text);
