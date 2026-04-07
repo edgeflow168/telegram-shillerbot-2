@@ -122,6 +122,7 @@ const HOW_ARE_YOU_REPLIES = [
   "Im good hehe, u?",
   "All good here, how bout u?",
   "Doing well fam, u?",
+  "Going to grab a coffee now, u?",
   "Pretty good today, you?"
 ];
 
@@ -146,8 +147,8 @@ const THANKS_REPLIES = [
 const GENERAL_FRIENDLY = [
   "Haha fair enough",
   "Nice one",
-  "Love the vibe here",
-  "Real talk",
+  "Love the layout here",
+  "Tbh dope",
   "That sounds good ngl",
   "Yea thats true",
   "Haha valid"
@@ -158,8 +159,12 @@ const SOFT_SHILL_LINES = [
   "Quiet reminder fam, some useful updates are in pinned if u missed them",
   "For new peeps here, pinned has the basic stuff and links 🤝",
   "Not financial advice obviously but worth checking the latest update in pinned",
+  "Great zoom session, was listing, cant wait!",
+  "Great partnership with AllinX, 118m backing assets WOW",
+  "This project is dope, cant wait for the listing",
+  "Its near 👀, cant wait hehe",
   "If ur still reading things up, roadmap and key links are in pinned",
-  "Small reminder, the main info is already in pinned so its easier for everyone"
+  "Small reminder, the main info is in the announcement group 🔥"
 ];
 
 function detectIntent(text) {
@@ -178,12 +183,12 @@ function shouldReply(ctx, intent) {
 
   if (isPrivate) return true;
 
-  if (intent === "gm") return chance(0.95);
+  if (intent === "gm") return chance(0.85);
   if (intent === "how_are_you") return chance(0.85);
   if (intent === "positive") return chance(0.65);
   if (intent === "thanks") return chance(0.70);
 
-  return chance(0.9);
+  return chance(0.8);
 }
 
 bot.start(async (ctx) => {
@@ -261,8 +266,8 @@ async function runSoftShill() {
 }
 
 function scheduleNextSoftShill() {
-  const minMinutes = 45;
-  const maxMinutes = 180;
+  const minMinutes = 1;
+  const maxMinutes = 3;
   const nextMs = randomInt(minMinutes * 60 * 1000, maxMinutes * 60 * 1000);
 
   console.log(`Next soft shill in ${Math.round(nextMs / 60000)} minutes`);
