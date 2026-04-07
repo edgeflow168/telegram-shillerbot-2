@@ -267,13 +267,13 @@ async function runSoftShill() {
 
 function scheduleNextSoftShill() {
   const minMinutes = 1;
-  const maxMinutes = 3;
+  const maxMinutes = 2;
   const nextMs = randomInt(minMinutes * 60 * 1000, maxMinutes * 60 * 1000);
 
   console.log(`Next soft shill in ${Math.round(nextMs / 60000)} minutes`);
 
   setTimeout(async () => {
-    if (chance(0.75)) {
+    if (chance(1)) {
       await runSoftShill();
     } else {
       console.log("Skipped one soft shill cycle intentionally");
