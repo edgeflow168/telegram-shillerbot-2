@@ -67,11 +67,11 @@ async function humanReply(ctx, text, extra = {}) {
   let delayMs;
 
   if (chance(0.3)) {
-    delayMs = randomInt(5000, 12000);
+    delayMs = randomInt(30000, 60000);
   } else if (chance(0.5)) {
-    delayMs = randomInt(15000, 40000);
-  } else {
     delayMs = randomInt(60000, 120000);
+  } else {
+    delayMs = randomInt(180000, 300000);
   }
 
   await sleep(delayMs);
